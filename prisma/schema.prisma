@@ -6,12 +6,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Blog {
-  id           String @id @default(uuid())
+  id           String @id @default(uuid()) @map("_id")
   title        String @unique
   subtitle     String
   introduction String
@@ -24,7 +24,7 @@ model Blog {
 }
 
 model Image {
-  id     String @id @default(uuid())
+  id     String @id @default(uuid()) @map("_id")
   name   String
   url    String
   blogId String

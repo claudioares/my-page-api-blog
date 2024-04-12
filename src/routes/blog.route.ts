@@ -30,7 +30,7 @@ blogRouter.get("/blog", async (_, res)=>{
         const resultUsecase = await usecase.GETBlog();
 
         return res.json({
-            resultUsecase
+            data:resultUsecase
         })
     } catch (error) {
         res.json({messege: "Fail in the aplications"});
@@ -47,7 +47,7 @@ blogRouter.get("/blog/id", async (req, res)=>{
         const resultUsecase = await usecase.blogId(id);
 
         return res.json({
-            resultUsecase
+            data:resultUsecase
         })
     } catch (error) {
         res.json({messege: "Fail in the aplications"});

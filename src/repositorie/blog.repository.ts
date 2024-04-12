@@ -16,7 +16,11 @@ export class BlogRepositoryPrisma implements IMethodsRepositoryBlog {
         return resultPrisma
     };
     async getBlogs(): Promise<[]> {
-        const resultPrisma = await prisma.blog.findMany();
+        const resultPrisma = await prisma.blog.findMany({
+            include:{
+                Image:true
+            }
+        });
         return resultPrisma as [];
     };
     async getBlogId(id: string): Promise<IBlogInterface> {
